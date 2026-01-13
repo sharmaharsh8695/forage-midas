@@ -1,2 +1,15 @@
 general:
   kafka-topic: trader-updates
+
+spring:
+  kafka:
+    producer:
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    consumer:
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      auto-offset-reset: earliest
+      properties:
+        spring.json.trusted.packages: com.jpmc.midascore.foundation
+
+server:
+  port: 33400
